@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react'
+import { Form, Header } from 'semantic-ui-react'
 
+import { ReactComponent as Logo } from '../../assets/logo.svg'
 import './form.scss'
 
 const options = [
@@ -19,38 +20,29 @@ class FinalForm extends Component {
     const { value } = this.state
     return (
       <div className='final-form'>
+        <Header>
+          <Logo/>
+          We're sorry to see you go! We will miss you!
+        </Header>
         <Form>
           <Form.Group widths='equal'>
             <Form.Input fluid label='Naam' placeholder='Naam' />
-            <Form.Input fluid label='Voornaam' placeholder='Voornaam' />
+            <Form.Input fluid label='Voornaam' placeholder='Voornaam'/>
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Input fluid label='E-mail' placeholder='E-mail' />
             <Form.Input fluid label='Telefoonnummer' placeholder='Telefoonnummer' />
           </Form.Group>
-          <Form.Group inline>
-            <label>Size</label>
-            <Form.Radio
-              label='Small'
-              value='sm'
-              checked={value === 'sm'}
-              onChange={this.handleChange}
-            />
-            <Form.Radio
-              label='Medium'
-              value='md'
-              checked={value === 'md'}
-              onChange={this.handleChange}
-            />
-            <Form.Radio
-              label='Large'
-              value='lg'
-              checked={value === 'lg'}
-              onChange={this.handleChange}
-            />
+          <Form.Group widths='equal'>
+            <Form.Input fluid label='Adres' placeholder='Adres' />
           </Form.Group>
-          <Form.TextArea label='About' placeholder='Tell us more about you...' />
-          <Form.Checkbox label='I agree to the Terms and Conditions' />
+          <Form.Select
+            fluid
+            label='Reason to leave'
+            options={options}
+            placeholder='Reason'
+          />
+          <Form.TextArea label='About' placeholder='Tell us more about what could we do differently...' />
           <Form.Button>Submit</Form.Button>
         </Form>
       </div>
@@ -59,10 +51,3 @@ class FinalForm extends Component {
 }
 
 export default FinalForm
-
-//   < Form.Select
-// fluid
-// label = 'Gender'
-// options = { options }
-// placeholder = 'Gender'
-//   />

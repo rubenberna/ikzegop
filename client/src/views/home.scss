@@ -7,6 +7,7 @@
     width: 50%;
     background: #F4AC45;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: 0.5s all;
@@ -18,6 +19,8 @@
       color: #FBFFFE;
       font-size: 90px;
       cursor: pointer;
+      padding-bottom: 40px;
+      height: 200px;
     }
   }
   .home-go {
@@ -25,6 +28,7 @@
     background: #FBFFFE;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     transition: 0.5s all;
     filter: brightness(0.8);
@@ -35,6 +39,8 @@
       color: #F4AC45;
       font-size: 90px;
       cursor: pointer;
+      padding-bottom: 40px;
+      height: 200px;
     }
   }
 }
