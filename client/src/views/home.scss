@@ -1,0 +1,40 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+
+  .home-stay {
+    width: 50%;
+    background: #F4AC45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all;
+    filter: brightness(0.9);
+    &:hover {
+      filter: brightness(1)
+    }
+    .home-stay-title { 
+      color: #FBFFFE;
+      font-size: 90px;
+      cursor: pointer;
+    }
+  }
+  .home-go {
+    width: 50%;
+    background: #FBFFFE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all;
+    filter: brightness(0.8);
+    &:hover {
+      filter: brightness(0.9)
+    }
+    .home-go-title {
+      color: #F4AC45;
+      font-size: 90px;
+      cursor: pointer;
+    }
+  }
+}
