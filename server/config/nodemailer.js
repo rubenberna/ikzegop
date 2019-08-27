@@ -30,7 +30,7 @@ module.exports = {
     const clientMsg = {
       from: '"EasyLife" <Customercare@easylifedc.be>',
       to: `${clientData.email}`,
-      subject: `Client ${clientData.voornaam} ${clientData.naam} wishes to stop`,
+      subject: 'EasyLife - Klantendienst',
       html: `<p>Beste klant,</p> 
         <p>Wij hebben uw melding tot stopzetting van de overeenkomst goed ontvangen.</p>
         <p>U mag rekenen op een correcte en vlotte afhandeling.</p>
@@ -53,7 +53,7 @@ module.exports = {
       }
       else console.log(info);
     })
-    
+
     transporter.sendMail(clientMsg, (err, info) => {
       if (err) {
         console.log('Error occurred:' + err.message);
