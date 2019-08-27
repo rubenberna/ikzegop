@@ -3,10 +3,7 @@
   display: flex;
   position: relative;
 
-  .home-stay {
-    width: 50%;
-    background: #F4AC45;
-    display: flex;
+  .home-area {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -15,32 +12,30 @@
     &:hover {
       filter: brightness(1)
     }
-    .home-stay-title { 
-      color: #FBFFFE;
-      font-size: 90px;
-      cursor: pointer;
-      padding-bottom: 40px;
-      height: 200px;
+    .home-msg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 300px;
+      .home-title { 
+        font-size: 90px;
+        cursor: pointer;
+        padding-bottom: 40px;
+      }
     }
   }
-  .home-go {
-    width: 50%;
+
+  .home-area.stay {
+    background: #F4AC45;
+  }
+  .home-area.go {
     background: #FBFFFE;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.5s all;
-    filter: brightness(0.8);
-    &:hover {
-      filter: brightness(0.9)
-    }
-    .home-go-title {
-      color: #F4AC45;
-      font-size: 90px;
-      cursor: pointer;
-      padding-bottom: 40px;
-      height: 200px;
-    }
+  }
+  .home-title.go {
+    color: #F4AC45;
+  }
+  .home-title.stay {
+    color: #FBFFFE;
   }
 }
