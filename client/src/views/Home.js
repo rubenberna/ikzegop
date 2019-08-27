@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 import './home.scss'
-import FinalForm from '../components/forms/Form'
+import FinalForm from '../components/form/Form'
 import Smiley from '../components/smileys/Smiley'
 import Message from '../components/message/Message'
 
