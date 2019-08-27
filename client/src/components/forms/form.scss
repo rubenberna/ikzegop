@@ -7,7 +7,6 @@
   padding: 50px;
   filter: drop-shadow(2px 4px 6px black);
   .ui.header {
-    padding-bottom: 30px;
     color: #616161;
     display: flex;
     align-items: center;
@@ -15,5 +14,8 @@
   }
   label {
     color: #616161 !important;
+  }
+  .ui.divider {
+    padding-bottom: 13px;
   }
 }
