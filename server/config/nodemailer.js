@@ -11,7 +11,7 @@ module.exports = {
       }
     });
 
-    const message = {
+    const supportMsg = {
       from: '"EasyLife" <Customercare@easylifedc.be>',
       to: 'klantendienst@Easylifedc.be',
       subject: `Client ${clientData.voornaam} ${clientData.naam} wishes to stop`,
@@ -27,7 +27,34 @@ module.exports = {
       `
     }
 
-    transporter.sendMail(message, (err, info) => {
+    const clientMsg = {
+      from: '"EasyLife" <Customercare@easylifedc.be>',
+      to: `${clientData.email}`,
+      subject: `Client ${clientData.voornaam} ${clientData.naam} wishes to stop`,
+      html: `<p>Beste klant,</p> 
+        <p>Wij hebben uw melding tot stopzetting van de overeenkomst goed ontvangen.</p>
+        <p>U mag rekenen op een correcte en vlotte afhandeling.</p>
+        <p>Wij willen heel graag de reden van de stopzetting met u bespreken en zullen u hier eerstdaags over contacteren.</p>
+        <div>
+          <p>Tot snel!</p>
+        </div>
+        <div>
+          <p>Met vriendelijke groeten,</p>
+          <p>Customer Care Department Easy Life</p>
+          <p>Draaiboomstraat 6, 2160 Wommelgem</p>
+          <p>03/369 89 03</p>
+        </div>
+      `
+    }
+
+    transporter.sendMail(supportMsg, (err, info) => {
+      if (err) {
+        console.log('Error occurred:' + err.message);
+      }
+      else console.log(info);
+    })
+    
+    transporter.sendMail(clientMsg, (err, info) => {
       if (err) {
         console.log('Error occurred:' + err.message);
       }
