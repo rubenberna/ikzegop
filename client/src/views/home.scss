@@ -18,6 +18,7 @@
       align-items: center;
       justify-content: space-between;
       height: 300px;
+      position: relative;
       .home-title { 
         font-size: 90px;
         cursor: pointer;
@@ -38,5 +39,10 @@
   .home-title.stay {
     color: #FBFFFE;
   }
+  .anxious-msg {
+    position: absolute;
+    bottom: 20%;
+  }
 }
+
 

@@ -8,8 +8,7 @@ const Smiley = (props) => {
       <span
         className='smiley'
         role='img'
-        aria-label={''}
-        aria-hidden={true}
+        aria-label={props.label}
         style={{color: props.color}}
       >
       {props.children}
