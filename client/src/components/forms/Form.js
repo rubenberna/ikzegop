@@ -147,7 +147,7 @@ class FinalForm extends Component {
                 onFocus={e => this.clearError('reason')}
               />
               <Form.TextArea 
-                label='About' 
+                label='Comments' 
                 placeholder='Tell us more about what could we do differently...' 
                 onChange={e => this.handleChange('comments', e)} 
                 error={comments === 'error'} 
