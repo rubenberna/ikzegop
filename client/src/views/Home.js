@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 import './home.scss'
 import FinalForm from '../components/forms/Form'
@@ -17,8 +18,8 @@ class Home extends Component {
     stayDisplay: 'flex'
   }
 
-  sendDataToCustomerCare = (clientData) => {
-    console.log(clientData);
+  sendDataToCustomerCare = (clientData) => {    
+    axios.post('/sendEmail', {clientData})
     this.sayGoodbye()
   }
 

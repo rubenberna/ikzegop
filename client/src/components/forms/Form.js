@@ -28,7 +28,7 @@ class FinalForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { naam, voornaam, email, telefoonummer, adres, reason, description } = this.state
+    const { naam, voornaam, email, telefoonummer, adres, reason, comments } = this.state
     const cancellationData = {
       naam,
       voornaam,
@@ -36,7 +36,7 @@ class FinalForm extends Component {
       telefoonummer,
       adres,
       reason,
-      description
+      comments
     }
     this.validateForm(cancellationData)
   }
@@ -83,7 +83,7 @@ class FinalForm extends Component {
   }
 
   render() {
-    const { voornaam, naam, email, telefoonummer, adres, reason, description } = this.state
+    const { voornaam, naam, email, telefoonummer, adres, reason, comments } = this.state
     const { formVisible } = this.props
     return (
       <>
@@ -149,9 +149,9 @@ class FinalForm extends Component {
               <Form.TextArea 
                 label='About' 
                 placeholder='Tell us more about what could we do differently...' 
-                onChange={e => this.handleChange('description', e)} 
-                error={description === 'error'} 
-                onFocus={e => this.clearError('description')}
+                onChange={e => this.handleChange('comments', e)} 
+                error={comments === 'error'} 
+                onFocus={e => this.clearError('comments')}
               />
               <Form.Button>Submit</Form.Button>
             </Form>
