@@ -5,13 +5,6 @@ import './form.scss'
 import UiDivider from '../divider/Divider'
 import Intro from '../intro/Intro'
 
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other' },
-]
-
-
 class FinalForm extends Component {
   state = {
     formVisible: true,
@@ -137,15 +130,6 @@ class FinalForm extends Component {
                   onFocus={e => this.clearError('adres')}
                 />
               </Form.Group>
-              <Form.Select
-                fluid
-                label='Reason to leave'
-                options={options}
-                placeholder='Reason'
-                onChange={e => this.setState({'reason': e.target.innerText})}
-                error={reason === 'error'}
-                onFocus={e => this.clearError('reason')}
-              />
               <Form.TextArea 
                 label='Comments' 
                 placeholder='Tell us more about what could we do differently...' 
