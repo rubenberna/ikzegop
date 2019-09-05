@@ -4,11 +4,11 @@
   -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
    transform: translate(-50%, -50%);
-  height: 660px;
+  min-height: 660px;
+  max-width: 550px;
   top: 50%;
   left: 50%;
   margin: 0 auto;
-  width: 550px;
   padding: 50px;
   filter: drop-shadow(2px 4px 6px black);
   .ui.header {

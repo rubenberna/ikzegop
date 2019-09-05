@@ -5,6 +5,7 @@ import './home.scss'
 import FinalForm from '../components/form/Form'
 import Smiley from '../components/smileys/Smiley'
 import Message from '../components/message/Message'
+import LargeScreen from '../components/mainBoard/LargeScreen'
 
 
 class Home extends Component {
@@ -21,7 +22,7 @@ class Home extends Component {
 
   sendDataToCustomerCare = (clientData) => { 
     console.log(clientData);
-       
+    
     axios.post('/sendEmail', {clientData})
     this.sayGoodbye()
   }
@@ -86,38 +87,22 @@ class Home extends Component {
   }
 
   render() {
-    const { stayArea, goArea, goDisplay, stayDisplay } = this.state
     return (
-      <div className='home'>
-        <div 
-          className={stayArea === '50%' ? 'home-area stay' : 'home-area clear-stay'} 
-          style={{ width: stayArea, display: stayDisplay }} 
-          onClickCapture={this.stay}>
-          <div className='home-msg'>
-            <h1 className='home-title stay'>Stay</h1>
-            { this.fromHappyToHappier() }
-            { this.showMessage() }
-          </div>
-        </div>
-        <div 
-          className={goArea === '50%' ? 'home-area go' : 'home-area clear-go'}
-          style={{ width: goArea, display: goDisplay }}
-          onClickCapture={this.hastyClick}>
-          <div className='home-msg'>
-            <h1 className='home-title go'>Go</h1>
-            { this.fromSadToSaddier() }
-            { this.showMessage() }
-          </div>
-          <div className='anxious-msg'>
-            {this.anxiousMsg()}
-          </div>
-        </div>
-        <FinalForm 
-          sendData={this.sendDataToCustomerCare} 
-          formVisible={this.state.formVisible} 
-          msgVisible={this.state.msgVisible} 
-          toggleFormVisibility={this.toggleFormVisibility} />
-      </div>
+      <>
+      <LargeScreen 
+        state={this.state}
+        fromHappyToHappier={this.fromHappyToHappier}
+        fromSadToSaddier={this.fromSadToSaddier}
+        showMessage={this.showMessage}
+        anxiousMsg={this.anxiousMsg}
+        hastyClick={this.hastyClick}
+        stay={this.stay} />
+      <FinalForm
+        sendData={this.sendDataToCustomerCare}
+        formVisible={this.state.formVisible}
+        msgVisible={this.state.msgVisible}
+        toggleFormVisibility={this.toggleFormVisibility} />
+      </>
     )
   }
 }
