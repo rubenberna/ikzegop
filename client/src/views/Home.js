@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-import './home.scss'
 import FinalForm from '../components/form/Form'
 import Smiley from '../components/smileys/Smiley'
 import Message from '../components/message/Message'
-import LargeScreen from '../components/mainBoard/LargeScreen'
+import LargeScreenContainer from '../components/mainBoard/LargeScreenContainer'
+import SmallScreenContainer from '../components/mainBoard/SmallScreenContainer'
 
 
 class Home extends Component {
@@ -21,8 +21,6 @@ class Home extends Component {
   }
 
   sendDataToCustomerCare = (clientData) => { 
-    console.log(clientData);
-    
     axios.post('/sendEmail', {clientData})
     this.sayGoodbye()
   }
@@ -65,6 +63,16 @@ class Home extends Component {
     return leaveMsg ? <Smiley color={'#F4AC45'} label={'saddier'}>&#128531;</Smiley> : <Smiley color={'#F4AC45'} label={'sad'}>&#128542;</Smiley>
   }
 
+  smallAndSad = () => {
+    const { leaveMsg } = this.state
+    if (leaveMsg) return (
+      <div className='small-sad-msg'>
+        <Smiley color={'#FBFFFE'} label={'sad'}>&#128542;</Smiley>
+        <Message color={'#FBFFFE'}>Thank you for your time and we'll be in touch !</Message>
+      </div>
+    ) 
+  }
+
   showMessage = () => {
     const { leaveMsg, stayMsg } = this.state
     if (stayMsg) return <Message color={'#FBFFFE'}>Thank you for staying with us!</Message>
@@ -89,7 +97,7 @@ class Home extends Component {
   render() {
     return (
       <>
-      <LargeScreen 
+      <LargeScreenContainer 
         state={this.state}
         fromHappyToHappier={this.fromHappyToHappier}
         fromSadToSaddier={this.fromSadToSaddier}
@@ -97,6 +105,7 @@ class Home extends Component {
         anxiousMsg={this.anxiousMsg}
         hastyClick={this.hastyClick}
         stay={this.stay} />
+      <SmallScreenContainer smallAndSadMsg={this.smallAndSad}/>
       <FinalForm
         sendData={this.sendDataToCustomerCare}
         formVisible={this.state.formVisible}

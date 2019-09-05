@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
+
 // Media Query Ranges
 $small-screen-up: 601px !default;
 $medium-screen-up: 993px !default;
@@ -11,18 +13,25 @@ $x-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
 $x-large-and-down: "only screen and (max-width : #{$x-large-screen})" !default;
 $large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
 $large-and-down: "only screen and (max-width : #{$large-screen})" !default;
-$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$medium-and-up: "only screen and (min-width : #{$medium-screen})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
 
+// colors
+$white: #FBFFFE;
+$orange: #F4AC45;
+$blue: #0277bd;
 
 .home {
   min-height: 100vh;
   display: flex;
   position: relative;
+  @media #{$medium-and-down} {
+    display: none;
+  }
 
-  .home-area {
+  .home-large {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -31,14 +40,14 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
     &:hover {
       filter: brightness(1)
     }
-    .home-msg {
+    .home-large-msg {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
       height: 300px;
       position: relative;
-      .home-title { 
+      .home-large-title { 
         font-size: 90px;
         cursor: pointer;
         padding-bottom: 40px;
@@ -46,30 +55,59 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
     }
   }
 
-  .home-area.stay {
-    background: #F4AC45;
+  .home-large.stay {
+    background: $orange;
     padding-right: 200px;
   }
-  .home-area.clear-stay {
+  .home-large.clear-stay {
     padding: 0;
-    background: #F4AC45;
+    background: $orange;
   }
-  .home-area.go {
-    background: #FBFFFE;
+  .home-large.go {
+    background: $white;
     padding-left: 200px;
   }
-  .home-area.clear-go {
+  .home-large.clear-go {
     padding: 0;
-    background: #FBFFFE;
+    background: $white;
   }
-  .home-title.go {
-    color: #F4AC45;
+  .home-large-title.go {
+    color: $orange;
   }
-  .home-title.stay {
-    color: #FBFFFE;
+  .home-large-title.stay {
+    color: $white;
   }
   .anxious-msg {
     position: absolute;
     bottom: 20%;
   }
 }
+
+.home-small {
+  min-height: 100vh;
+  position: relative;
+  background: $blue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @media #{$medium-and-up} {
+    display: none;
+  }
+  .home-small-title {
+    position: absolute;
+    top: 5%;
+  }
+
+  h1, h2 {
+    font-family: 'Satisfy', cursive;
+    color: $white;
+  }
+  .small-sad-msg {
+    height: 413px;
+    display: flex;
+    flex-direction: column;
+    justify-content: inherit;
+    align-items: center;
+  }
+}
+
