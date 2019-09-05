@@ -19,7 +19,9 @@ class Home extends Component {
     hastyClicked: false
   }
 
-  sendDataToCustomerCare = (clientData) => {    
+  sendDataToCustomerCare = (clientData) => { 
+    console.log(clientData);
+       
     axios.post('/sendEmail', {clientData})
     this.sayGoodbye()
   }
@@ -87,7 +89,8 @@ class Home extends Component {
     const { stayArea, goArea, goDisplay, stayDisplay } = this.state
     return (
       <div className='home'>
-        <div className='home-area stay' 
+        <div 
+          className={stayArea === '50%' ? 'home-area stay' : 'home-area clear-stay'} 
           style={{ width: stayArea, display: stayDisplay }} 
           onClickCapture={this.stay}>
           <div className='home-msg'>
@@ -96,7 +99,8 @@ class Home extends Component {
             { this.showMessage() }
           </div>
         </div>
-        <div className='home-area go' 
+        <div 
+          className={goArea === '50%' ? 'home-area go' : 'home-area clear-go'}
           style={{ width: goArea, display: goDisplay }}
           onClickCapture={this.hastyClick}>
           <div className='home-msg'>
@@ -108,7 +112,11 @@ class Home extends Component {
             {this.anxiousMsg()}
           </div>
         </div>
-        <FinalForm sendData={this.sendDataToCustomerCare} formVisible={this.state.formVisible} msgVisible={this.state.msgVisible} toggleFormVisibility={this.toggleFormVisibility} />
+        <FinalForm 
+          sendData={this.sendDataToCustomerCare} 
+          formVisible={this.state.formVisible} 
+          msgVisible={this.state.msgVisible} 
+          toggleFormVisibility={this.toggleFormVisibility} />
       </div>
     )
   }

@@ -8,7 +8,7 @@ import Intro from '../intro/Intro'
 class FinalForm extends Component {
   state = {
     formVisible: true,
-    msgVisible: false
+    msgVisible: false,
   }
 
   handleChange = (name, e) => {
@@ -34,6 +34,36 @@ class FinalForm extends Component {
     this.validateForm(cancellationData)
   }
 
+  validateForm = (cancellationData) => {
+    
+    let change = {}
+    let ready = true
+
+    // 1. Check if all fields have an input
+    for (let key in cancellationData) {
+      let value = cancellationData[key]
+      if (value === undefined || value === '' || value === 'error') {
+        change[key] = 'error'
+        ready = false
+        this.setState({ ...change })
+      } else ready = true
+    }
+
+    // 2. Regex email
+    if (cancellationData.email) {
+      if (this.verifyEmail(cancellationData.email) === false) {
+        this.setState({ email: 'error' })
+        ready = false
+      } else ready = true
+    }
+
+    // 3. Submit form
+    if (ready) {
+      this.props.sendData(cancellationData)
+      this.props.toggleFormVisibility()
+    }
+  }
+
   clearError = (key) => {
     const change = {}
     change[key] = ''
@@ -46,37 +76,10 @@ class FinalForm extends Component {
     else return false;
   }
 
-  validateForm = (cancellationData) => {
-    let change = {}
-    let canBeSubmitted = true
-
-    // 1. Check if all fields have an input
-    for (let key in cancellationData) {
-      let value = cancellationData[key]
-      if (value === undefined || value === '' || value === 'error') {
-        change[key] = 'error'
-        canBeSubmitted = false
-        this.setState({ ...change })
-      }
-    }
-
-    // 2. Regex email
-    if (cancellationData.email) {
-      if (this.verifyEmail(cancellationData.email) === false) {
-        this.setState({ email: 'error' })
-        canBeSubmitted = false
-      }
-    }
-
-    // 3. Submit form
-    if (canBeSubmitted) {
-      this.props.sendData(cancellationData)
-      this.props.toggleFormVisibility()
-    }
-  }
+  
 
   render() {
-    const { voornaam, naam, email, telefoonummer, adres, reason, comments } = this.state
+    const { voornaam, naam, email, telefoonummer, adres, comments } = this.state
     const { formVisible } = this.props
     return (
       <>

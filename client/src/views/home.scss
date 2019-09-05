@@ -29,8 +29,18 @@
 
   .home-area.stay {
     background: #F4AC45;
+    padding-right: 200px;
+  }
+  .home-area.clear-stay {
+    padding: 0;
+    background: #F4AC45;
   }
   .home-area.go {
+    background: #FBFFFE;
+    padding-left: 200px;
+  }
+  .home-area.clear-go {
+    padding: 0;
     background: #FBFFFE;
   }
   .home-title.go {
