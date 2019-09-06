@@ -1,11 +1,13 @@
-FROM node:alpine
+FROM node:11-slim
 
-WORKDIR '/app'
+WORKDIR /app/client
 
-COPY package.json .
+COPY package*.json /app/client/
 
 RUN npm install
 
-COPY . .
+COPY . /app/client/
+
+EXPOSE 3000
 
 CMD ["npm", "run", "start"]

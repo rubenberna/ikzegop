@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm cache clean --force && npm install
 
-COPY . /app
+COPY . .
 
 EXPOSE 5000
 

@@ -4,10 +4,29 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile.dev
-      ports:
-        - "3000:3000"
-      volumes:
-        - ./client/node_modules
-        - ./client:/app/client
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client/node_modules:/app/client/node_modules
+      - ./client/src:/app/client/src
+      - ./client/public:/app/client/public
+    links:
+      - server
+  server:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env
+    restart: always
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server/node_modules:/app/server/node_modules
+      - ./server/:/app/server
       
   
