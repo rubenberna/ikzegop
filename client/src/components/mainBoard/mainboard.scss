@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
 
 // Media Query Ranges
+$x-small-screen: 350px !default;
 $small-screen-up: 601px !default;
 $medium-screen-up: 993px !default;
 $large-screen-up: 1201px !default;
@@ -13,10 +14,11 @@ $x-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
 $x-large-and-down: "only screen and (max-width : #{$x-large-screen})" !default;
 $large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
 $large-and-down: "only screen and (max-width : #{$large-screen})" !default;
-$medium-and-up: "only screen and (min-width : #{$medium-screen})" !default;
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$x-small-and-down: "only screen and (max-width : #{$x-small-screen})" !default;
 
 // colors
 $white: #FBFFFE;
@@ -108,6 +110,11 @@ $blue: #0277bd;
     flex-direction: column;
     justify-content: inherit;
     align-items: center;
+
+    @media #{$small-and-down} {
+      width: 200px;
+      text-align: center;
+    }
   }
 }
 

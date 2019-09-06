@@ -39,13 +39,13 @@ $x-small-and-down: "only screen and (max-width : #{$x-small-screen})" !default;
   }
   @media #{$small-and-down} {
     margin: 0 auto;
-    top: 83%;
+    top: 95%;
     width: 310px;
     margin-bottom: 90px;
   }
   @media #{$x-small-and-down} {
     margin: 0 auto;
-    top: 100%;
+    top: 120%;
     width: 280px;
     margin-bottom: 90px;
   }
