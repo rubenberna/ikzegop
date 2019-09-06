@@ -6,6 +6,7 @@ import Smiley from '../components/smileys/Smiley'
 import Message from '../components/message/Message'
 import LargeScreenContainer from '../components/mainBoard/LargeScreenContainer'
 import SmallScreenContainer from '../components/mainBoard/SmallScreenContainer'
+import { Icon } from 'semantic-ui-react'
 
 
 class Home extends Component {
@@ -67,7 +68,7 @@ class Home extends Component {
     const { leaveMsg } = this.state
     if (leaveMsg) return (
       <div className='small-sad-msg'>
-        <Smiley color={'#FBFFFE'} label={'sad'}>&#128542;</Smiley>
+        <Message><Icon name='paper plane outline' size='huge'/></Message>
         <Message color={'#FBFFFE'}>Thank you for your time and we'll be in touch !</Message>
       </div>
     ) 

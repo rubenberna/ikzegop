@@ -31,11 +31,8 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
   padding: 50px;
   filter: drop-shadow(2px 4px 6px black);
   @media #{$medium-and-down} {
-    // position: static;
     margin: 0 auto;
-    -webkit-transform: none;
-    -moz-transform: none;
-   transform: none;
+    top: 55%;
   }
   .ui.header {
     color: #616161;
