@@ -1,12 +1,12 @@
 FROM node:11-slim
 
-WORKDIR '/app'
+WORKDIR /app/server
 
-COPY package.json .
+COPY package*.json /app/server/
 
-RUN npm install
+RUN npm cache clean --force && npm install
 
-COPY . .
+COPY . /app/server/
 
 EXPOSE 5000
 
