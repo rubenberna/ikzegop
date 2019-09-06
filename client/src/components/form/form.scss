@@ -1,4 +1,5 @@
 // Media Query Ranges
+$x-small-screen: 350px !default;
 $small-screen-up: 601px !default;
 $medium-screen-up: 993px !default;
 $large-screen-up: 1201px !default;
@@ -15,6 +16,7 @@ $medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$x-small-and-down: "only screen and (max-width : #{$x-small-screen})" !default;
 
 
 .final-form {
@@ -29,10 +31,23 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
   left: 50%;
   margin: 0 auto;
   padding: 50px;
+  margin-bottom: 90px;
   filter: drop-shadow(2px 4px 6px black);
   @media #{$medium-and-down} {
     margin: 0 auto;
     top: 55%;
+  }
+  @media #{$small-and-down} {
+    margin: 0 auto;
+    top: 83%;
+    width: 310px;
+    margin-bottom: 90px;
+  }
+  @media #{$x-small-and-down} {
+    margin: 0 auto;
+    top: 100%;
+    width: 280px;
+    margin-bottom: 90px;
   }
   .ui.header {
     color: #616161;
