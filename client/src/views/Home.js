@@ -36,7 +36,7 @@ class Home extends Component {
       stayDisplay: 'none',
       leaveMsg: true
     })
-    setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)
+    // setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)
   }
 
   stay = () => {
@@ -47,7 +47,7 @@ class Home extends Component {
       formVisible: false,
       stayMsg: true
     })
-    setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)
+    // setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)
   }
 
   toggleFormVisibility = () => {
