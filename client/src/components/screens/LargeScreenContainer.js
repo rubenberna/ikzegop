@@ -15,8 +15,8 @@ class LargeScreenContainer extends Component {
           <div className='home-large-msg'>
             <h1 className='home-large-title stay'>Stay</h1>
             {this.props.fromHappyToHappier()}
-            {this.props.showMessage()}
           </div>
+          {this.props.showMessage()}
         </div>
         <div
           className={goArea === '50%' ? 'home-large go' : 'home-large clear-go'}
@@ -25,8 +25,8 @@ class LargeScreenContainer extends Component {
           <div className='home-large-msg'>
             <h1 className='home-large-title go'>Go</h1>
             {this.props.fromSadToSaddier()}
-            {this.props.showMessage()}
           </div>
+          {this.props.showMessage()}
           <div className='anxious-msg'>
             {this.props.anxiousMsg()}
           </div>

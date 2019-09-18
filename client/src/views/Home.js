@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 import FinalForm from '../components/form/Form'
-import Smiley from '../components/smileys/Smiley'
 import Message from '../components/message/Message'
-import LargeScreenContainer from '../components/mainBoard/LargeScreenContainer'
-import SmallScreenContainer from '../components/mainBoard/SmallScreenContainer'
+import LargeScreenContainer from '../components/screens/LargeScreenContainer'
+import SmallScreenContainer from '../components/screens/SmallScreenContainer'
 import { Icon } from 'semantic-ui-react'
+import HappyApple from '../components/icons/HappyApple'
+import HappierApple from '../components/icons/HappierApple'
+import SadApple from '../components/icons/SadApple'
+import SaddierApple from '../components/icons/SaddierApple'
 
 
 class Home extends Component {
@@ -21,8 +24,8 @@ class Home extends Component {
     hastyClicked: false
   }
 
-  sendDataToCustomerCare = (clientData) => { 
-    axios.post('/sendEmail', {clientData})
+  sendDataToCustomerCare = (clientData) => {
+    axios.post('api/sendEmail', {clientData} )
     this.sayGoodbye()
   }
 
@@ -33,7 +36,7 @@ class Home extends Component {
       stayDisplay: 'none',
       leaveMsg: true
     })
-    setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)  
+    setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)
   }
 
   stay = () => {
@@ -43,7 +46,7 @@ class Home extends Component {
       goDisplay: 'none',
       formVisible: false,
       stayMsg: true
-    }) 
+    })
     setTimeout(() => window.location.replace("https://easylife-dc.be/"), 10000)
   }
 
@@ -56,12 +59,12 @@ class Home extends Component {
 
   fromHappyToHappier = () => {
     const { stayMsg } = this.state
-    return stayMsg ? <Smiley color={'#FBFFFE'} label={'happier'}>&#128521;</Smiley> : <Smiley color={'#FBFFFE'} label={'happy'}>&#128515;</Smiley> 
+    return stayMsg ? <HappierApple /> : <HappyApple/>
   }
 
   fromSadToSaddier = () => {
     const { leaveMsg } = this.state
-    return leaveMsg ? <Smiley color={'#F4AC45'} label={'saddier'}>&#128531;</Smiley> : <Smiley color={'#F4AC45'} label={'sad'}>&#128542;</Smiley>
+    return leaveMsg ? <SaddierApple/> : <SadApple/>
   }
 
   smallAndSad = () => {
@@ -69,15 +72,20 @@ class Home extends Component {
     if (leaveMsg) return (
       <div className='small-sad-msg'>
         <Message><Icon name='paper plane outline' size='huge'/></Message>
-        <Message color={'#FBFFFE'}>Thank you for your time and we'll be in touch !</Message>
+        <Message color={'#FBFFFE'}>Bedankt voor uw tijd, we contacteren u snel!</Message>
       </div>
-    ) 
+    )
   }
 
   showMessage = () => {
     const { leaveMsg, stayMsg } = this.state
-    if (stayMsg) return <Message color={'#FBFFFE'}>Thank you for staying with us!</Message>
-    if (leaveMsg) return <Message color={'#F4AC45'}>We're sorry to see you go</Message>
+    if (stayMsg) return <Message color={'#FBFFFE'}>Bedankt dat we u mogen blijven helpen!</Message>
+    if (leaveMsg) return (
+      <div className='leave-msg'>
+        <Message color={'#F4AC45'}>Wat jammer dat u onze onderneming verlaat</Message>
+        <h3 style={{color: '#F4AC45'}}>Bedankt voor uw tijd, we contacteren u snel!</h3>
+      </div>
+    )
   }
 
   hastyClick = () => {
@@ -87,9 +95,9 @@ class Home extends Component {
   anxiousMsg = () => {
     if (this.state.hastyClicked && this.state.formVisible) {
       return (
-        <Message 
+        <Message
           color={'#F4AC45'}>
-          Please enter your details first
+          Kan u eerst uw gegevens invullen alstublieft?
         </Message>
       )
     }
@@ -98,7 +106,7 @@ class Home extends Component {
   render() {
     return (
       <>
-      <LargeScreenContainer 
+      <LargeScreenContainer
         state={this.state}
         fromHappyToHappier={this.fromHappyToHappier}
         fromSadToSaddier={this.fromSadToSaddier}

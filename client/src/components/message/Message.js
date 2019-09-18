@@ -4,7 +4,7 @@ const Message = ({children, color}) => {
 
   return (
     <>
-    <h2 style={{color: color }}>{children}</h2>
+      <h2 style={{color: color }}>{children}</h2>
     </>
   )
 }

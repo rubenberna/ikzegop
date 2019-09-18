@@ -1,32 +1,25 @@
 version: '3'
 services:
-  web: 
+  api:
     build:
-      context: ./client
       dockerfile: Dockerfile.dev
-    expose:
-      - "3000"
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./client/node_modules:/app/client/node_modules
-      - ./client/src:/app/client/src
-      - ./client/public:/app/client/public
-    links:
-      - server
-  server:
-    build: 
       context: ./server
-      dockerfile: Dockerfile.dev
     env_file:
       - .env
-    restart: always
-    expose:
-      - "5000"
-    ports:
-      - "5000:5000"
     volumes:
-      - ./server/node_modules:/app/server/node_modules
-      - ./server/:/app/server
-      
-  
+      - /app/node_modules # "don't try to override it, just leave it as is"
+      - ./server:/app # when our application tries to access anything inside the app directory, except for node_modules folder, is going to be redirected to server (allowing updates any time we make changes in our local source)
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app # everything inside the client directory should be shared inside the app container
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '8080:80'

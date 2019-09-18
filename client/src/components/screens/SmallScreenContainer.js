@@ -7,7 +7,7 @@ class SmallScreenContainer extends Component {
     return (
       <div className='home-small'>
         <div className='home-small-title'>
-          <h1>We'd like you to stay</h1>
+          <h1>We zouden het fijn vinden u te mogen blijven verder helpen in de toekomst</h1>
         </div>
         {this.props.smallAndSadMsg()}
       </div>

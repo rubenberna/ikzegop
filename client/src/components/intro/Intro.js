@@ -13,7 +13,7 @@ const Intro = () => {
       <div className='intro-text'>
         <p>Beste klant,</p>
         <p>Wat jammer dat u de samenwerking met onze onderneming wenst te beëindigen.</p>
-        <p>Opdat wij uw melding tot stopzetting vlot en correct zouden kunnen behandelen, vragen wij u vriendelijk om onderstaande velden nauwkeurig in te vullen.</p> 
+        <p>Opdat wij uw melding tot stopzetting vlot en correct zouden kunnen behandelen, vragen wij u vriendelijk om onderstaande velden nauwkeurig in te vullen.</p>
       </div>
     </div>
   )

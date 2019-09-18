@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rubenberna/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true rubenberna/react-test npm run test -- --coverage
+
+after_success:
+  - docker build -t rubenberna/ikzegop-nginx ./nginx
+  - docker build -t rubenberna/ikzegop-server ./server
+  - docker build -t rubenberna/ikzegop-client ./client
+  #login to docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push images to docker hub
+  - docker push rubenberna/ikzegop-nginx
+  - docker push rubenberna/ikzegop-server
+  - docker push rubenberna/ikzegop-client

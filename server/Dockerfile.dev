@@ -1,13 +1,6 @@
-FROM node:11-slim
-
-WORKDIR /app/server
-
-COPY package*.json /app/server/
-
-RUN npm cache clean --force && npm install
-
-COPY . /app/server/
-
-EXPOSE 5000
-
-CMD ["npm", "run", "start"]
+FROM node:alpine
+WORKDIR "/app"
+COPY ./package.json ./
+RUN npm install
+COPY . .
+CMD ["npm", "run", "server"]

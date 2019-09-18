@@ -33,6 +33,7 @@ $blue: #0277bd;
     display: none;
   }
 
+// Large screen version
   .home-large {
     flex-direction: column;
     justify-content: center;
@@ -47,12 +48,16 @@ $blue: #0277bd;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 300px;
+      height: 350px;
       position: relative;
-      .home-large-title { 
+      .home-large-title {
         font-size: 90px;
         cursor: pointer;
         padding-bottom: 40px;
+        margin-bottom: 50px;
+      }
+      svg {
+        height: 300px;
       }
     }
   }
@@ -82,9 +87,18 @@ $blue: #0277bd;
   .anxious-msg {
     position: absolute;
     bottom: 20%;
+    width: 370px;
+    text-align: center;
+  }
+  .leave-msg {
+    text-align: center;
+    svg {
+      height: 300px;
+    }
   }
 }
 
+// Small screen version
 .home-small {
   min-height: 100vh;
   position: relative;
@@ -117,4 +131,3 @@ $blue: #0277bd;
     }
   }
 }
-
