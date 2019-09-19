@@ -23,7 +23,7 @@ deploy:
   provider: elasticbeanstalk
   region: "eu-west-1"
   app: "ikzegop"
-  env: "Ikzegop-env"
+  env: "Ikzegop-env-1"
   bucket_name: "elasticbeanstalk-eu-west-1-305799247952"
   bucket_path: "ikzegop-docker-multi"
   on:
