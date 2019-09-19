@@ -83,7 +83,6 @@ class Home extends Component {
     if (leaveMsg) return (
       <div className='leave-msg'>
         <Message color={'#F4AC45'}>Wat jammer dat u onze onderneming verlaat</Message>
-        <h3 style={{color: '#F4AC45'}}>Bedankt voor uw tijd, we contacteren u snel!</h3>
       </div>
     )
   }
