@@ -21,16 +21,7 @@ class FinalForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { naam, voornaam, email, telefoonummer, adres, reason, comments } = this.state
-    const cancellationData = {
-      naam,
-      voornaam,
-      email,
-      telefoonummer,
-      adres,
-      reason,
-      comments
-    }
+    const { formVisible, msgVisible, ...cancellationData } = this.state
     this.validateForm(cancellationData)
   }
 
