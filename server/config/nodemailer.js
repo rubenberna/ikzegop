@@ -23,7 +23,7 @@ module.exports = {
       <p><b>Adress:</b>${clientData.adres}</p>
       <p><b>Reason for quiting:</b>${clientData.reason}</p>
       <p><b>Comments:</b>${clientData.comments}</p>
-      <p>Go get them tiger!</p>
+      <p>Thank you and have a great day!</p>
       `
     }
 
@@ -31,7 +31,7 @@ module.exports = {
       from: '"EasyLife" <Customercare@easylifedc.be>',
       to: `${clientData.email}`,
       subject: 'EasyLife - Klantendienst',
-      html: `<p>Beste klant,</p> 
+      html: `<p>Beste klant,</p>
         <p>Wij hebben uw melding tot stopzetting van de overeenkomst goed ontvangen.</p>
         <p>U mag rekenen op een correcte en vlotte afhandeling.</p>
         <p>Wij willen heel graag de reden van de stopzetting met u bespreken en zullen u hier eerstdaags over contacteren.</p>
